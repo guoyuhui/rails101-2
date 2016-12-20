@@ -25,10 +25,12 @@ class GroupsController < ApplicationController
     @group.user = current_user
 
     if @group.save
+      current_user.join!(@group)
       redirect_to groups_path
     else
       render :new
     end
+
   end
 
   def update
@@ -59,6 +61,7 @@ class GroupsController < ApplicationController
 
     redirect_to group_path(@group)
   end
+
 
   def quit
     @group = Group.find(params[:id])
