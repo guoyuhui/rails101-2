@@ -60,7 +60,7 @@ class GroupsController < ApplicationController
     end
 
     redirect_to group_path(@group)
-  end
+  end  
 
 
   def quit
